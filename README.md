@@ -12,7 +12,7 @@ Docker image for running OpenTofu with AWS CLI.
 ## Building Locally
 
 ```bash
-docker build -t opentofu-aws-runner .
+docker build -t opentofu-aws-cli .
 ```
 
 ## GitHub Container Registry
