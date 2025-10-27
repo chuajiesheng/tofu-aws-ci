@@ -1,8 +1,9 @@
 FROM ghcr.io/opentofu/opentofu:minimal AS tofu
-FROM alpine:latest
+FROM public.ecr.aws/amazonlinux/amazonlinux:latest
 
-RUN apk update && apk upgrade
-RUN apk add --no-cache git aws-cli curl
+RUN dnf update -y && dnf upgrade -y
+RUN dnf install -y git aws-cli
+RUN dnf clean all
 
 COPY --from=tofu /usr/local/bin/tofu /usr/local/bin/tofu 
 RUN ln -s /usr/local/bin/tofu /usr/local/bin/terraform
